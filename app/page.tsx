@@ -1,10 +1,10 @@
 export default function Home() {
   return (
-    <main className="w-full min-h-screen overflow-x-hidden bg-gradient-to-br from-black via-gray-900 to-purple-950 text-white flex flex-col items-center px-5 py-6">
+    <main className="w-full min-h-screen overflow-x-hidden bg-gradient-to-br from-black via-gray-950 to-purple-950 text-white flex flex-col items-center px-5 py-6 selection:bg-purple-500/30">
       
       {/* Navigation Bar - Fixed responsive visibility */}
-      <nav className="w-full flex justify-center mb-6 px-2">
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-300 bg-gray-900/80 px-3 sm:px-4 py-3 rounded-2xl border border-gray-800 w-full max-w-2xl">
+      <nav className="w-full flex justify-center mb-10 px-2 sticky top-4 z-50">
+        <div className="backdrop-blur-xl flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-300 bg-white/5 px-3 sm:px-5 py-3 rounded-2xl border border-white/10 w-full max-w-3xl shadow-2xl shadow-purple-900/20">
           <a href="#" className="hover:text-purple-400 transition">Home</a>
           <a href="#" className="hover:text-purple-400 transition">Skills</a>
           <a href="#" className="hover:text-purple-400 transition">About</a>
@@ -21,12 +21,12 @@ export default function Home() {
       </nav>
 
       {/* Hero Header - Fixed leading height & separated layouts cleanly */}
-      <div className="flex flex-col items-center mt-6 sm:mt-12 w-full max-w-4xl">
-        <h1 className="text-4xl font-bold text-purple-500 text-center leading-tight sm:hidden">
+      <div className="flex flex-col items-center mt-10 sm:mt-16 w-full max-w-4xl animate-pulse">
+        <h1 className="text-4xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent text-center leading-tight sm:hidden">
           Sanidhya Pratap
         </h1>
 
-        <h1 className="hidden sm:block text-5xl md:text-6xl font-bold text-purple-500 text-center leading-tight">
+        <h1 className="hidden sm:block text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent text-center leading-tight drop-shadow-2xl">
           Sanidhya Pratap
         </h1>
       </div>
@@ -39,7 +39,7 @@ export default function Home() {
       {/* Call to Action Button */}
       <a
        href="mailto:pratapsanidhya.sp@gmail.com" 
-       className="bg-purple-600 px-8 py-3 rounded-2xl text-base sm:text-lg font-medium hover:bg-purple-700 hover:scale-105 transition shadow-lg shadow-purple-500/30"
+       className="bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 rounded-2xl text-base sm:text-lg font-semibold hover:scale-110 transition duration-300 shadow-2xl shadow-purple-500/40 hover:shadow-pink-500/40"
       >
         Contact Me
       </a>
@@ -51,11 +51,19 @@ export default function Home() {
         </h2>
 
         <div className="flex gap-3 flex-wrap justify-center text-sm sm:text-base">
-          <span className="bg-gray-800/80 px-4 py-2 rounded-lg border border-gray-700">HTML</span>
-          <span className="bg-gray-800/80 px-4 py-2 rounded-lg border border-gray-700">CSS</span>
-          <span className="bg-gray-800/80 px-4 py-2 rounded-lg border border-gray-700">JavaScript</span>
-          <span className="bg-gray-800/80 px-4 py-2 rounded-lg border border-gray-700">React</span>
-          <span className="bg-gray-800/80 px-4 py-2 rounded-lg border border-gray-700">Next.js</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">HTML</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">CSS</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">JavaScript</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">React</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">Next.js</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">Python</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">SQL</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">Machine Learning</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">Generative AI</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">Pandas</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">NumPy</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">Scikit-learn</span>
+          <span className="bg-white/5 backdrop-blur-lg px-4 py-2 rounded-xl border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/10 transition duration-300">Tailwind CSS</span>
         </div>
       </div>
 
@@ -66,8 +74,30 @@ export default function Home() {
         </h2>
 
         <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-          I am learning Frontend Development and building modern websites using
-          Next.js, React and Tailwind CSS.
+          I am an aspiring Data Scientist and Frontend Developer with a passion for
+          building modern digital experiences and AI-powered solutions. My journey
+          started with web development and gradually expanded into Machine Learning,
+          Generative AI, and Data Science.
+          <br /><br />
+
+          I have hands-on experience working as a GO AI Associate at Amazon, where I
+          worked with AI-driven operational workflows and automation systems. Alongside
+          my technical journey, I have also spent years teaching Physics, Chemistry,
+          and Mathematics, helping students develop strong conceptual understanding and
+          problem-solving abilities.
+
+          <br /><br />
+
+          I enjoy combining creativity with technology to build responsive websites,
+          intelligent applications, and data-driven systems. My interests include
+          Machine Learning, AI integration in web applications, modern frontend
+          development, and solving real-world problems through technology.
+
+          <br /><br />
+
+          Currently, I am focused on mastering Full Stack Development, Artificial
+          Intelligence, and scalable SaaS applications while continuously improving my
+          skills in modern technologies like React, Next.js, TypeScript, and Python.
         </p>
       </div>
 
@@ -79,7 +109,7 @@ export default function Home() {
 
        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
     
-         <div className="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-left">
+         <div className="bg-white/5 backdrop-blur-lg p-6 rounded-3xl border border-white/10 hover:border-purple-500/40 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 text-left">
           <h3 className="text-2xl font-bold mb-2 text-purple-400">
             Portfolio Website
           </h3>
@@ -89,7 +119,7 @@ export default function Home() {
           </p>
          </div>
 
-         <div className="bg-gray-900 p-6 rounded-2xl border border-gray-800 text-left">
+         <div className="bg-white/5 backdrop-blur-lg p-6 rounded-3xl border border-white/10 hover:border-purple-500/40 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 text-left">
           <h3 className="text-2xl font-bold mb-2 text-purple-400">
             AI Legal OS
           </h3>
@@ -102,8 +132,63 @@ export default function Home() {
        </div>
       </div>
 
+      {/* Achievements Section */}
+      <div className="mt-16 w-full max-w-4xl px-4">
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          Achievements
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div className="bg-white/5 backdrop-blur-lg p-6 rounded-3xl border border-white/10 hover:border-purple-500/40 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20">
+            <h3 className="text-xl font-bold text-purple-400 mb-2">
+              Amazon Experience
+            </h3>
+
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Worked as a GO AI Associate at Amazon and gained practical exposure to
+              AI-powered operational workflows and automation systems.
+            </p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-lg p-6 rounded-3xl border border-white/10 hover:border-purple-500/40 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20">
+            <h3 className="text-xl font-bold text-purple-400 mb-2">
+              8+ Years Teaching Experience
+            </h3>
+
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Taught Physics, Chemistry and Mathematics to students while developing
+              strong communication and analytical thinking skills.
+            </p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-lg p-6 rounded-3xl border border-white/10 hover:border-purple-500/40 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20">
+            <h3 className="text-xl font-bold text-purple-400 mb-2">
+              AI & ML Certifications
+            </h3>
+
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Completed certifications in Generative AI, SQL, Machine Learning and
+              AWS AI fundamentals from LinkedIn Learning, AWS and Udemy.
+            </p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-lg p-6 rounded-3xl border border-white/10 hover:border-purple-500/40 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20">
+            <h3 className="text-xl font-bold text-purple-400 mb-2">
+              Full Stack Projects
+            </h3>
+
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Built responsive websites, AI concepts and interactive applications
+              using modern technologies like React, Next.js and JavaScript.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
       {/* Footer */}
-      <footer className="mt-20 text-center text-gray-500 text-xs sm:text-sm pb-10">
+      <footer className="mt-24 text-center text-gray-400 text-xs sm:text-sm pb-10 border-t border-white/10 pt-8 w-full">
         © 2026 Sanidhya Pratap. All rights reserved.
       </footer>
 
