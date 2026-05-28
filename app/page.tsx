@@ -33,7 +33,7 @@ export default function Home() {
 
       {/* Subheading */}
       <p className="text-sm sm:text-lg md:text-2xl text-gray-300 mb-8 mt-4 text-center max-w-xs sm:max-w-xl leading-relaxed">
-       Frontend Developer <br className="sm:hidden" /> • AI Enthusiast
+       Aspiring Data scientist <br className="sm:hidden" /> • Frontend Developer <br className="sm:hidden" /> • AI Enthusiast
       </p>
 
       {/* Call to Action Button */}
@@ -43,7 +43,13 @@ export default function Home() {
       >
         Contact Me
       </a>
-
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        className="mt-4 inline-block bg-white/10 px-6 py-3 rounded-xl hover:bg-white/20 transition"
+       >
+        📄 Download Resume
+      </a>
       {/* Skills Section */}
       <div className="mt-16 w-full max-w-2xl">
         <h2 className="text-3xl font-bold mb-6 text-center">
@@ -107,7 +113,7 @@ export default function Home() {
         Projects
        </h2>
 
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
     
          <div className="bg-white/5 backdrop-blur-lg p-6 rounded-3xl border border-white/10 hover:border-purple-500/40 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 text-left">
           <h3 className="text-2xl font-bold mb-2 text-purple-400">
@@ -128,7 +134,22 @@ export default function Home() {
             AI powered law firm management platform concept.
           </p>
          </div>
+        <div className="bg-gray-900 p-6 rounded-2xl border border-gray-800">
+         <h3 className="text-2xl font-bold mb-2 text-purple-400">
+           My Blog
+         </h3>
 
+         <p className="text-gray-400 mb-4">
+           Read my articles on AI, Web Development and my learning journey.
+         </p>
+
+         <a
+          href="/blog/first-post"
+          className="inline-block bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700"
+         >
+           Read Blog →
+         </a>
+        </div>
        </div>
       </div>
 
@@ -186,7 +207,19 @@ export default function Home() {
 
         </div>
       </div>
+      <div className="mt-16 text-center">
+        <h2 className="text-3xl font-bold mb-4">
+          Contact
+        </h2>
 
+         <p className="text-gray-400">
+           📧 pratapsanidhya.sp@gmail.com
+         </p>
+
+         <p className="text-gray-400">
+           📱 8587870141
+         </p>
+      </div>
       {/* Footer */}
       <footer className="mt-24 text-center text-gray-400 text-xs sm:text-sm pb-10 border-t border-white/10 pt-8 w-full">
         © 2026 Sanidhya Pratap. All rights reserved.
