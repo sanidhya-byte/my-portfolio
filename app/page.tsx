@@ -1,39 +1,53 @@
 export default function Home() {
   return (
-    <main className="w-full min-h-screen overflow-x-hidden bg-gradient-to-br from-black via-gray-950 to-purple-950 text-white flex flex-col items-center px-5 py-6 selection:bg-purple-500/30">
+    <main id="home" className="w-full min-h-screen overflow-x-hidden bg-gradient-to-br from-black via-gray-950 to-purple-950 text-white flex flex-col items-center px-5 py-6 selection:bg-purple-500/30 scroll-smooth">
       
       {/* Navigation Bar - Fixed responsive visibility */}
-      <nav className="w-full flex justify-center mb-10 px-2 sticky top-4 z-50">
-        <div className="backdrop-blur-xl flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-300 bg-white/5 px-3 sm:px-5 py-3 rounded-2xl border border-white/10 w-full max-w-3xl shadow-2xl shadow-purple-900/20">
-          <a href="#" className="hover:text-purple-400 transition">Home</a>
-          <a href="#" className="hover:text-purple-400 transition">Skills</a>
-          <a href="#" className="hover:text-purple-400 transition">About</a>
-          <a href="#" className="hover:text-purple-400 transition">Projects</a>
+      <nav className="w-full flex justify-center mb-8 px-3 sticky top-3 z-50">
+        <div className="backdrop-blur-xl flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm text-gray-300 bg-white/5 px-3 py-3 rounded-2xl border border-white/10 w-full max-w-4xl shadow-2xl shadow-purple-900/20">
 
-          <button className="bg-purple-600 hover:bg-purple-700 transition px-4 py-2 rounded-lg text-white font-medium">
-            Sign In
-          </button>
+          <a href="#home" className="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition">
+            Home
+          </a>
 
-          <button className="border border-gray-500 hover:border-purple-500 hover:text-purple-400 transition px-4 py-2 rounded-lg text-white font-medium">
-            Sign Out
-          </button>
+          <a href="#skills" className="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition">
+            Skills
+          </a>
+
+          <a href="#about" className="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition">
+            About
+          </a>
+
+          <a href="#projects" className="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition">
+            Projects
+          </a>
+
+          <a href="/blog/first-post" className="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition">
+            Blog
+          </a>
+
+          <a href="mailto:pratapsanidhya.sp@gmail.com" className="bg-purple-600 hover:bg-purple-700 transition px-4 py-2 rounded-xl text-white font-medium">
+            Contact
+          </a>
+
         </div>
       </nav>
 
       {/* Hero Header - Fixed leading height & separated layouts cleanly */}
-      <div className="flex flex-col items-center mt-10 sm:mt-16 w-full max-w-4xl animate-pulse">
+      <div className="flex flex-col items-center mt-10 sm:mt-16 w-full max-w-4xl">
         <h1 className="text-4xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent text-center leading-tight sm:hidden">
-          Sanidhya Pratap
+          Hi, I'm Sanidhya 👋
+        </h1>
+        <h1 className="hidden sm:block text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent text-center leading-tight">
+          Hi, I'm Sanidhya 👋
         </h1>
 
-        <h1 className="hidden sm:block text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent text-center leading-tight drop-shadow-2xl">
-          Sanidhya Pratap
-        </h1>
+        
       </div>
 
       {/* Subheading */}
       <p className="text-sm sm:text-lg md:text-2xl text-gray-300 mb-8 mt-4 text-center max-w-xs sm:max-w-xl leading-relaxed">
-       Aspiring Data scientist <br className="sm:hidden" /> • Frontend Developer <br className="sm:hidden" /> • AI Enthusiast
+        Building AI-powered products and modern web applications.
       </p>
 
       {/* Call to Action Button */}
@@ -46,12 +60,12 @@ export default function Home() {
       <a
         href="/resume.pdf"
         target="_blank"
-        className="mt-4 inline-block bg-white/10 px-6 py-3 rounded-xl hover:bg-white/20 transition"
+        className="mt-4 inline-block bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 rounded-2xl text-base sm:text-lg font-semibold hover:scale-110 transition duration-300 shadow-2xl shadow-purple-500/40 hover:shadow-pink-500/40"
        >
         📄 Download Resume
       </a>
       {/* Skills Section */}
-      <div className="mt-16 w-full max-w-2xl">
+      <div id="skills" className="mt-16 w-full max-w-2xl scroll-mt-24">
         <h2 className="text-3xl font-bold mb-6 text-center">
           Skills
         </h2>
@@ -74,7 +88,7 @@ export default function Home() {
       </div>
 
       {/* About Me Section */}
-      <div className="mt-16 text-center max-w-2xl px-4">
+      <div id="about" className="mt-16 text-center max-w-2xl px-4 scroll-mt-24">
         <h2 className="text-3xl font-bold mb-4">
           About Me
         </h2>
@@ -108,7 +122,7 @@ export default function Home() {
       </div>
 
       {/* Projects Section */}
-      <div className="mt-16 text-center w-full max-w-4xl">
+      <div id="projects" className="mt-16 text-center w-full max-w-4xl scroll-mt-24">
        <h2 className="text-3xl font-bold mb-8">
         Projects
        </h2>
