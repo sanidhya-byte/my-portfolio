@@ -36,10 +36,10 @@ export default function Home() {
       {/* Hero Header - Fixed leading height & separated layouts cleanly */}
       <div className="flex flex-col items-center mt-10 sm:mt-16 w-full max-w-4xl">
         <h1 className="text-4xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent text-center leading-tight sm:hidden">
-          Hi, I'm Sanidhya 👋
+          Hi, I&apos;m Sanidhya 👋
         </h1>
         <h1 className="hidden sm:block text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent text-center leading-tight">
-          Hi, I'm Sanidhya 👋
+          Hi, I&apos;m Sanidhya 👋
         </h1>
 
         
