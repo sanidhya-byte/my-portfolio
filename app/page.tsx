@@ -24,7 +24,7 @@ export default function Home() {
 
           {/* CMS link hidden from public navbar */}
 
-          <a href="/blog/first-post" className="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition">
+          <a href="/blog" className="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition">
             Blog
           </a>
 
@@ -163,7 +163,7 @@ export default function Home() {
          </p>
 
          <a
-          href="/blog/first-post"
+          href="/blog"
           className="inline-block bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-700"
          >
            Read Blog →
