@@ -22,13 +22,18 @@ export default function Home() {
             Projects
           </a>
 
+          {/* CMS link hidden from public navbar */}
+
           <a href="/blog/first-post" className="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition">
             Blog
           </a>
 
-          <a href="mailto:pratapsanidhya.sp@gmail.com" className="bg-purple-600 hover:bg-purple-700 transition px-4 py-2 rounded-xl text-white font-medium">
+          <a
+            href="#contact"
+            className="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-purple-400 transition">
             Contact
           </a>
+
 
         </div>
       </nav>
@@ -36,10 +41,10 @@ export default function Home() {
       {/* Hero Header - Fixed leading height & separated layouts cleanly */}
       <div className="flex flex-col items-center mt-10 sm:mt-16 w-full max-w-4xl">
         <h1 className="text-4xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent text-center leading-tight sm:hidden">
-          Hi, I&apos;m Sanidhya 👋
+          Hi, I{"'"}m Sanidhya 👋
         </h1>
         <h1 className="hidden sm:block text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent text-center leading-tight">
-          Hi, I&apos;m Sanidhya 👋
+          Hi, I{"'"}m Sanidhya 👋
         </h1>
 
         
@@ -208,7 +213,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-lg p-6 rounded-3xl border border-white/10 hover:border-purple-500/40 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20">
+          <div className="bg-white/5 backdrop-blur-lg p-6 rounded-3xl border border-white/10 hover:border-purple-500/40 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/40">
             <h3 className="text-xl font-bold text-purple-400 mb-2">
               Full Stack Projects
             </h3>
@@ -221,7 +226,7 @@ export default function Home() {
 
         </div>
       </div>
-      <div className="mt-16 text-center">
+      <div id="contact" className="mt-16 text-center scroll-mt-24">
         <h2 className="text-3xl font-bold mb-4">
           Contact
         </h2>
@@ -236,6 +241,14 @@ export default function Home() {
       </div>
       {/* Footer */}
       <footer className="mt-24 text-center text-gray-400 text-xs sm:text-sm pb-10 border-t border-white/10 pt-8 w-full">
+        <div className="mb-4">
+          <a
+            href="/dashboard"
+            className="text-gray-500 hover:text-purple-400 transition"
+          >
+            Admin
+          </a>
+        </div>
         © 2026 Sanidhya Pratap. All rights reserved.
       </footer>
 
