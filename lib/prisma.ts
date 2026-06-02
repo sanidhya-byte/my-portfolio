@@ -1,12 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+// Temporary Prisma stub to allow production build.
+// Real Prisma setup can be added later.
 
-const globalForPrisma = global as unknown as {
-  prisma: PrismaClient;
-};
-
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient();
-
-if (process.env.NODE_ENV !== "production")
-  globalForPrisma.prisma = prisma;
+export const prisma = null;
