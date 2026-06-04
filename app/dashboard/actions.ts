@@ -2,8 +2,14 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { verifySession, logout } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 export async function publishPost(prevState: unknown, formData: FormData) {
+  if (!(await verifySession())) {
+    return { error: "Unauthorized. Please log in as admin." };
+  }
+
   const title = formData.get("title")?.toString().trim();
   const content = formData.get("content")?.toString().trim();
 
@@ -57,6 +63,10 @@ export async function publishPost(prevState: unknown, formData: FormData) {
 }
 
 export async function deletePost(id: number) {
+  if (!(await verifySession())) {
+    return { error: "Unauthorized. Please log in as admin." };
+  }
+
   try {
     await prisma.post.delete({
       where: { id },
@@ -71,4 +81,9 @@ export async function deletePost(id: number) {
     const errorMessage = error instanceof Error ? error.message : "Failed to delete blog post.";
     return { error: errorMessage };
   }
+}
+
+export async function logoutAction() {
+  await logout();
+  redirect("/login");
 }
