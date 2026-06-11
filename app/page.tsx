@@ -51,8 +51,12 @@ export default function Home() {
       </div>
 
       {/* Subheading */}
-      <p className="text-sm sm:text-lg md:text-2xl text-gray-300 mb-8 mt-4 text-center max-w-xs sm:max-w-xl leading-relaxed">
-        Building AI-powered products and modern web applications.
+      <p className="text-sm sm:text-lg md:text-2xl text-gray-300 mb-8 mt-4 text-center max-w-xs sm:max-w-3xl leading-relaxed">
+        Aspiring Data Scientist | Web Developer | AI Enthusiast
+        <br />
+        <span className="text-gray-400">
+          Building AI-powered products, modern web applications, and data-driven solutions.
+        </span>
       </p>
 
       {/* Call to Action Button */}
@@ -139,8 +143,8 @@ export default function Home() {
             Portfolio Website
           </h3>
 
-          <p className="text-gray-400 text-sm">
-            Built using Next.js and Tailwind CSS.
+          <p className="text-gray-400 text-sm leading-relaxed">
+            A fully responsive personal portfolio built using Next.js, React and Tailwind CSS. Features include a modern UI, blog integration, resume download, smooth navigation and Vercel deployment.
           </p>
          </div>
 
@@ -149,8 +153,8 @@ export default function Home() {
             AI Legal OS
           </h3>
 
-          <p className="text-gray-400 text-sm">
-            AI powered law firm management platform concept.
+          <p className="text-gray-400 text-sm leading-relaxed">
+            An AI-powered legal management platform concept designed to help law firms manage cases, organize documents, automate workflows and leverage AI for legal research and document analysis.
           </p>
          </div>
         <div className="bg-gray-900 p-6 rounded-2xl border border-gray-800">
@@ -158,8 +162,8 @@ export default function Home() {
            My Blog
          </h3>
 
-         <p className="text-gray-400 mb-4">
-           Read my articles on AI, Web Development and my learning journey.
+         <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+           A blogging platform built with Next.js featuring MDX-based content, CMS experimentation and articles focused on AI, Data Science, Web Development and technology learning.
          </p>
 
          <a
@@ -233,6 +237,14 @@ export default function Home() {
 
          <p className="text-gray-400">
            📧 pratapsanidhya.sp@gmail.com
+         </p>
+
+         <p className="text-gray-400">
+           💼 LinkedIn: linkedin.com/in/sanidhya-pratap
+         </p>
+
+         <p className="text-gray-400">
+           💻 GitHub: github.com/sanidhya-byte
          </p>
 
          <p className="text-gray-400">

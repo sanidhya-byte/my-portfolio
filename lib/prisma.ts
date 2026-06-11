@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
-import "dotenv/config";
+import { PrismaPg } from "@prisma/adapter-pg";
+import pg from "pg";
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 
@@ -9,12 +9,14 @@ let prismaInstance: PrismaClient;
 if (globalForPrisma.prisma) {
   prismaInstance = globalForPrisma.prisma;
 } else {
-  const dbPath = process.env.DATABASE_URL
-    ? process.env.DATABASE_URL.replace("file:", "")
-    : "./dev.db";
-
-  const adapter = new PrismaBetterSqlite3({ url: dbPath });
-  prismaInstance = new PrismaClient({ adapter });
+  const connectionString = process.env.DATABASE_URL;
+  if (connectionString) {
+    const pool = new pg.Pool({ connectionString });
+    const adapter = new PrismaPg(pool);
+    prismaInstance = new PrismaClient({ adapter });
+  } else {
+    prismaInstance = new PrismaClient();
+  }
 }
 
 export const prisma = prismaInstance;

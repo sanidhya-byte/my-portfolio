@@ -12,6 +12,7 @@ export async function publishPost(prevState: unknown, formData: FormData) {
 
   const title = formData.get("title")?.toString().trim();
   const content = formData.get("content")?.toString().trim();
+  const idStr = formData.get("id")?.toString();
 
   if (!title || !content) {
     return { error: "Title and content are required." };
@@ -28,36 +29,87 @@ export async function publishPost(prevState: unknown, formData: FormData) {
       slug = "post-" + Math.random().toString(36).substring(2, 7);
     }
 
-    // Resolve duplicate slugs by appending a counter
-    let existingPost = await prisma.post.findUnique({
-      where: { slug },
-    });
-    let count = 1;
-    const baseSlug = slug;
-    while (existingPost) {
-      slug = `${baseSlug}-${count}`;
-      existingPost = await prisma.post.findUnique({
+    if (idStr) {
+      const id = parseInt(idStr, 10);
+      if (isNaN(id)) {
+        return { error: "Invalid post ID." };
+      }
+
+      const existing = await prisma.post.findUnique({ where: { id } });
+      if (!existing) {
+        return { error: "Post not found." };
+      }
+
+      // Resolve duplicate slugs by appending a counter (excluding the current post being updated)
+      let existingPost = await prisma.post.findFirst({
+        where: {
+          slug,
+          id: { not: id },
+        },
+      });
+      let count = 1;
+      const baseSlug = slug;
+      while (existingPost) {
+        slug = `${baseSlug}-${count}`;
+        existingPost = await prisma.post.findFirst({
+          where: {
+            slug,
+            id: { not: id },
+          },
+        });
+        count++;
+      }
+
+      await prisma.post.update({
+        where: { id },
+        data: {
+          title,
+          slug,
+          content,
+        },
+      });
+
+      // Revalidate related paths so client views update immediately
+      revalidatePath("/blog");
+      revalidatePath(`/blog/${slug}`);
+      if (existing.slug !== slug) {
+        revalidatePath(`/blog/${existing.slug}`);
+      }
+      revalidatePath("/");
+
+      return { success: true, message: `Blog updated and republished successfully!` };
+    } else {
+      // Resolve duplicate slugs by appending a counter
+      let existingPost = await prisma.post.findUnique({
         where: { slug },
       });
-      count++;
+      let count = 1;
+      const baseSlug = slug;
+      while (existingPost) {
+        slug = `${baseSlug}-${count}`;
+        existingPost = await prisma.post.findUnique({
+          where: { slug },
+        });
+        count++;
+      }
+
+      await prisma.post.create({
+        data: {
+          title,
+          slug,
+          content,
+        },
+      });
+
+      // Revalidate related paths so client views update immediately
+      revalidatePath("/blog");
+      revalidatePath("/");
+
+      return { success: true, message: `Blog published successfully with slug: ${slug}` };
     }
-
-    await prisma.post.create({
-      data: {
-        title,
-        slug,
-        content,
-      },
-    });
-
-    // Revalidate related paths so client views update immediately
-    revalidatePath("/blog");
-    revalidatePath("/");
-
-    return { success: true, message: `Blog published successfully with slug: ${slug}` };
   } catch (error) {
-    console.error("Failed to publish blog post:", error);
-    const errorMessage = error instanceof Error ? error.message : "Failed to publish blog post due to an internal error.";
+    console.error("Failed to publish/update blog post:", error);
+    const errorMessage = error instanceof Error ? error.message : "Failed to publish or update blog post due to an internal error.";
     return { error: errorMessage };
   }
 }
