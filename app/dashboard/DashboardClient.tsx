@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import DashboardForm from "./DashboardForm";
-import DeleteButton from "./DeleteButton";
+import DeleteButton, { PublishToggleButton } from "./DeleteButton";
 import LogoutButton from "./LogoutButton";
 import Link from "next/link";
 import { Post } from "@prisma/client";
@@ -95,7 +95,7 @@ export default function DashboardClient({ posts }: DashboardClientProps) {
                 {posts.map((post) => (
                   <div
                     key={post.id}
-                    className="p-4 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-purple-500/20 transition-all duration-300 flex items-center justify-between gap-4"
+                    className="p-4 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-purple-500/20 transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                   >
                     <div className="min-w-0 flex-1">
                       <h3 className="font-bold text-gray-200 truncate hover:text-purple-400 transition">
@@ -110,14 +110,25 @@ export default function DashboardClient({ posts }: DashboardClientProps) {
                           year: "numeric",
                         })}
                       </p>
+                      <div className="mt-2">
+                        <span
+                          className={`text-[10px] px-2 py-1 rounded-full ${
+                            post.published
+                              ? "bg-green-500/10 text-green-400 border border-green-500/20"
+                              : "bg-yellow-500/10 text-yellow-400 border border-yellow-500/20"
+                          }`}
+                        >
+                          {post.published ? "Published" : "Unpublished"}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 shrink-0">
+                    <div className="flex flex-col gap-2 w-full sm:w-40 shrink-0">
                       <button
                         onClick={() => {
                           setEditingPost(post);
                           window.scrollTo({ top: 0, behavior: "smooth" });
                         }}
-                        className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 hover:bg-purple-500 hover:text-white transition duration-300 flex items-center gap-1"
+                        className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 hover:bg-purple-500 hover:text-white transition duration-300 flex items-center gap-1 w-full justify-center"
                         title="Edit blog post"
                       >
                         <svg
@@ -136,6 +147,12 @@ export default function DashboardClient({ posts }: DashboardClientProps) {
                         </svg>
                         Edit
                       </button>
+                      <div className="w-full">
+                        <PublishToggleButton
+                          id={post.id}
+                          published={post.published}
+                        />
+                      </div>
                       <DeleteButton id={post.id} />
                     </div>
                   </div>

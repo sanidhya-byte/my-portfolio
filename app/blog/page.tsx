@@ -8,6 +8,9 @@ export default async function BlogIndex() {
   let dbPosts: Post[] = [];
   try {
     dbPosts = await prisma.post.findMany({
+      where: {
+        published: true,
+      },
       orderBy: {
         createdAt: "desc",
       },
@@ -16,25 +19,18 @@ export default async function BlogIndex() {
     console.error("Failed to fetch database posts on blog index:", error);
   }
 
-  // Combine database posts with the default static MDX post and sort by date
-  const staticPost = {
-    id: 0,
-    title: "My First Blog Post 🚀",
-    slug: "first-post",
-    content: "Welcome to my first MDX-powered blog post! This blog is built using Next.js, Tailwind CSS, and MDX.",
-    createdAt: new Date("2026-06-02T20:30:00.000Z"),
-  };
-
-  const allPosts = [
-    ...dbPosts.map((post) => ({
+  const allPosts = dbPosts
+    .map((post) => ({
       id: post.id,
       title: post.title,
       slug: post.slug,
       content: post.content,
       createdAt: post.createdAt,
-    })),
-    staticPost,
-  ].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    }))
+    .sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
 
   return (
     <main className="w-full min-h-screen overflow-x-hidden bg-gradient-to-br from-black via-gray-950 to-purple-950 text-white flex flex-col items-center px-5 py-6 selection:bg-purple-500/30 scroll-smooth">

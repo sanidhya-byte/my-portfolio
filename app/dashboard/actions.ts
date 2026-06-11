@@ -135,6 +135,42 @@ export async function deletePost(id: number) {
   }
 }
 
+export async function togglePublishStatus(
+  id: number,
+  published: boolean
+) {
+  if (!(await verifySession())) {
+    return { error: "Unauthorized. Please log in as admin." };
+  }
+
+  try {
+    const post = await prisma.post.update({
+      where: { id },
+      data: { published },
+    });
+
+    revalidatePath("/blog");
+    revalidatePath(`/blog/${post.slug}`);
+    revalidatePath("/");
+    revalidatePath("/dashboard");
+
+    return {
+      success: true,
+      message: published
+        ? "Blog republished successfully."
+        : "Blog unpublished successfully.",
+    };
+  } catch (error) {
+    console.error("Failed to update publish status:", error);
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Failed to update publish status.";
+
+    return { error: errorMessage };
+  }
+}
+
 export async function logoutAction() {
   await logout();
   redirect("/login");

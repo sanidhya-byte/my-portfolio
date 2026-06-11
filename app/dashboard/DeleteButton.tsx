@@ -1,8 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { deletePost } from "./actions";
+import { deletePost, togglePublishStatus } from "./actions";
 import { useRouter } from "next/navigation";
+
+
+export function PublishToggleButton({
+  id,
+  published,
+}: {
+  id: number;
+  published: boolean;
+}) {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  async function handleToggle() {
+    setLoading(true);
+    const result = await togglePublishStatus(id, !published);
+    setLoading(false);
+
+    if (result?.error) {
+      alert(result.error);
+    } else {
+      router.refresh();
+    }
+  }
+
+  return (
+    <button
+      onClick={handleToggle}
+      disabled={loading}
+      className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition duration-300 ${
+        published
+          ? "bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 hover:bg-yellow-500 hover:text-black"
+          : "bg-green-500/10 border border-green-500/30 text-green-400 hover:bg-green-500 hover:text-black"
+      }`}
+    >
+      {loading ? "Updating..." : published ? "Unpublish" : "Republish"}
+    </button>
+  );
+}
 
 export default function DeleteButton({ id }: { id: number }) {
   const [loading, setLoading] = useState(false);
