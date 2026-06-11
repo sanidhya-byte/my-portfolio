@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "React",
     "Portfolio",
   ],
+  verification: {
+     google: "i0wYqs8B_qtS3rk3RxTm4qlWVCA_tgM-DIU_q31j7Eo",
+  },
 };
 
 export default function RootLayout({
